@@ -23,9 +23,9 @@ class Preferences: NSObject {
     
     var fontFamily: SupportedFont {
         // Which font should be used
-        get { return SupportedFont.named(defaults.value(forKey: "FontFamily") as? String ?? "") }
+        get { return SupportedFont.named(defaults.string(forKey: "FontFamily") ?? "") }
         set {
-            defaults.setValue(newValue.name, forKey: "FontFamily")
+            defaults.set(newValue.name, forKey: "FontFamily")
             defaults.synchronize()
         }
     }
@@ -58,72 +58,72 @@ class Preferences: NSObject {
     
     var plainFontsOnly: Bool {
         // Only use Regular Width Roman Fonts
-        get { return (defaults.value(forKey: "PlainFontsOnly") as? Bool) ?? true }
+        get { return defaults.object(forKey: "PlainFontsOnly") as? Bool ?? true }
         set {
-            defaults.setValue(newValue, forKey: "PlainFontsOnly")
+            defaults.set(newValue, forKey: "PlainFontsOnly")
             defaults.synchronize()
         }
     }
 
     var appearance: Appearance {
         // Should the dark theme be used
-        get { return Appearance(rawValue: defaults.value(forKey: "appearance") as? String ?? "") ?? .dark }
+        get { return Appearance(rawValue: defaults.string(forKey: "appearance") ?? "") ?? .dark }
         set {
-            defaults.setValue(newValue.rawValue, forKey: "appearance")
+            defaults.set(newValue.rawValue, forKey: "appearance")
             defaults.synchronize()
         }
     }
     
     var nightTimeMode: Bool {
         // Should the night time mode be used that makes the font red at night
-        get { return (defaults.value(forKey: "NightTimeMode") as? Bool) ?? false }
+        get { return defaults.object(forKey: "NightTimeMode") as? Bool ?? false }
         set {
-            defaults.setValue(newValue, forKey: "NightTimeMode")
+            defaults.set(newValue, forKey: "NightTimeMode")
             defaults.synchronize()
         }
     }
 
     var useAmPm: Bool {
         // Use AM/PM or 24h time
-        get { return !((defaults.value(forKey: "24h") as? Bool) ?? true) }
+        get { return !(defaults.object(forKey: "24h") as? Bool ?? true) }
         set {
-            defaults.setValue(!newValue, forKey: "24h")
+            defaults.set(!newValue, forKey: "24h")
             defaults.synchronize()
         }
     }
 
     var showTimeSeparators: Bool {
         // Show the time separators (colons)
-        get { return (defaults.value(forKey: "showTimeSeparators") as? Bool) ?? false }
+        get { return defaults.object(forKey: "showTimeSeparators") as? Bool ?? false }
         set {
-            defaults.setValue(newValue, forKey: "showTimeSeparators")
+            defaults.set(newValue, forKey: "showTimeSeparators")
             defaults.synchronize()
         }
     }
 
     var styleName: String {
         // The font weight to be used
-        get { return defaults.value(forKey: "styleName") as? String ??  "UltraLight" }
+        get { return defaults.string(forKey: "styleName") ?? "UltraLight" }
         set {
-            defaults.setValue(newValue, forKey: "styleName")
+            defaults.set(newValue, forKey: "styleName")
             defaults.synchronize()
         }
     }
 
     var showSeconds: Bool {
         // Should seconds be displayed or just HH and MM
-        get { return (defaults.value(forKey: "ShowSeconds") as? Bool) ?? true }
+        get { return defaults.object(forKey: "ShowSeconds") as? Bool ?? true }
         set {
-            defaults.setValue(newValue, forKey: "ShowSeconds")
+            defaults.set(newValue, forKey: "ShowSeconds")
             defaults.synchronize()
         }
     }
     
     var mainScreenOnly: Bool {
         // Show the time only on the main screen
-        get { return (defaults.value(forKey: "MainScreenOnly") as? Bool) ?? false }
+        get { return defaults.object(forKey: "MainScreenOnly") as? Bool ?? false }
         set {
-            defaults.setValue(newValue, forKey: "MainScreenOnly")
+            defaults.set(newValue, forKey: "MainScreenOnly")
             defaults.synchronize()
         }
     }
@@ -201,7 +201,16 @@ enum SupportedFont: String, CaseIterable {
     
     var availableWeights: [String] {
         // List of available font weights for each font
-        return (NSFontManager.shared.availableMembers(ofFontFamily: self.fontFamilyName)?.filter({ !(Preferences.shared?.plainFontsOnly ?? true) || Int(truncating: $0[3] as? NSNumber ?? 0)&0b1000001 == 0 }).map({ $0[1] as? String ?? "Error" })) ?? []
+        let members = NSFontManager.shared.availableMembers(ofFontFamily: fontFamilyName) ?? []
+        let plainFontsOnly = Preferences.shared?.plainFontsOnly ?? true
+
+        return members
+            .filter {
+                guard plainFontsOnly else { return true }
+                let traits = Int(truncating: $0[3] as? NSNumber ?? 0)
+                return traits & 0b1000001 == 0
+            }
+            .compactMap { $0[1] as? String }
     }
     
     func postscriptName(for styleName: String) -> String? {

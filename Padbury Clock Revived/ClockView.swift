@@ -15,8 +15,8 @@ final class ClockView: ScreenSaverView {
     static var shared: ClockView? = nil
     
     override init?(frame: NSRect, isPreview: Bool) {
-        // Setup Window
         super.init(frame: frame, isPreview: isPreview)
+        animationTimeInterval = 1.0
         if isPreview { ClockView.shared = self }
     }
     
@@ -39,7 +39,22 @@ final class ClockView: ScreenSaverView {
     var attributes: [NSAttributedString.Key: Any] = [:]
     
     var lastUsedNightTimeMode: Bool = false
-    var sytemWasDarkMode: Bool = false
+    var systemWasDarkMode: Bool = false
+
+    private var primaryScreen: NSScreen? {
+        NSScreen.screens.first
+    }
+
+    private var shouldDrawClock: Bool {
+        guard preferences.mainScreenOnly else { return true }
+        guard let windowScreen = window?.screen else { return false }
+        guard let primaryScreen else { return true }
+        return windowScreen == primaryScreen
+    }
+
+    private func invalidateLayout() {
+        hasSetup = false
+    }
     
     func setup(force: Bool = false) {
         // Get the current hour to determine conditions for night mode
@@ -50,8 +65,8 @@ final class ClockView: ScreenSaverView {
         
         // Compute dark mode
         let systemIsDarkMode = effectiveAppearance.bestMatch(from: [.darkAqua, .vibrantDark]) == .darkAqua
-        let darkModeChanged = systemIsDarkMode != sytemWasDarkMode
-        sytemWasDarkMode = systemIsDarkMode
+        let darkModeChanged = systemIsDarkMode != systemWasDarkMode
+        systemWasDarkMode = systemIsDarkMode
         
         // Don't run the setup for every frame, only for the first time or when explicitly asked to
         // or when the night time mode conditions or dark mode changed
@@ -119,10 +134,7 @@ final class ClockView: ScreenSaverView {
     // MARK: - Drawing
     
     override func animateOneFrame() {
-        super.animateOneFrame()
-        // Update the screen. This could potentially be improved by only updating
-        // the text bit.
-        setNeedsDisplay(bounds)
+        needsDisplay = true
     }
 
     override func draw(_ dirtyRect: NSRect) {
@@ -138,8 +150,7 @@ final class ClockView: ScreenSaverView {
         
         // If the setting is set to only draw on the main screen and this is not
         // the main screen stop here.
-        let isMainScreen = self.window?.screen == .main
-        if preferences.mainScreenOnly && !isMainScreen { return }
+        if !shouldDrawClock { return }
         
         // The font rect. vOffset has been described above
         let targetRect = NSRect(x: 0, y: bounds.height / 2 + vOffset, width: bounds.width, height: lineHeight)
@@ -164,5 +175,17 @@ final class ClockView: ScreenSaverView {
 
     override var configureSheet: NSWindow? {
         return sheetController.window
+    }
+
+    override func setFrameSize(_ newSize: NSSize) {
+        if frame.size != newSize {
+            invalidateLayout()
+        }
+        super.setFrameSize(newSize)
+    }
+
+    override func viewDidChangeEffectiveAppearance() {
+        invalidateLayout()
+        super.viewDidChangeEffectiveAppearance()
     }
 }

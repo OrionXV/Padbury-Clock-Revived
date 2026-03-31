@@ -1,6 +1,6 @@
 # Padbury Clock Revived
 
-![macOS](https://img.shields.io/badge/macOS-10.15-informational)
+![macOS](https://img.shields.io/badge/macOS-13.0%2B-informational)
 ![swift](https://img.shields.io/badge/language-Swift-orange)
 ![license](https://img.shields.io/github/license/Kamik423/Padbury-Clock-Revived)
 
@@ -25,6 +25,13 @@ The night time mode from the original is also supported.
 Download [the latest version](https://github.com/Kamik423/Padbury-Clock-Revived/releases/latest/download/Padbury.Clock.Revived.saver.zip) from [the releases page](https://github.com/Kamik423/Padbury-Clock-Revived/releases).
 
 ## Changelog
+
+### Unreleased
+
+* Updated project build settings for modern Xcode + Apple Silicon Macs (including M5-class systems)
+* Set Swift language mode to 5.10
+* Removed machine-specific manual signing settings to make local builds work out of the box
+* Raised deployment target to macOS 13.0
 
 ### 1.1.4 (2022-03-03)
 
