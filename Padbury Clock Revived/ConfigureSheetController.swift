@@ -34,6 +34,7 @@ final class ConfigureSheetController: NSObject, NSTextFieldDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        // OrionXV contribution: wire the footer field for live preference updates.
         footerMessageField.delegate = self
         setup()
     }
@@ -114,6 +115,7 @@ final class ConfigureSheetController: NSObject, NSTextFieldDelegate {
         guard let textField = obj.object as? NSTextField, textField == footerMessageField else { return }
         guard let preferences = Preferences.shared else { return }
 
+        // OrionXV contribution: update the preview immediately while the footer text changes.
         preferences.footerMessage = textField.stringValue
         ClockView.shared?.setup(force: true)
         ClockView.shared?.needsDisplay = true

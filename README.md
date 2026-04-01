@@ -28,10 +28,19 @@ Download [the latest version](https://github.com/Kamik423/Padbury-Clock-Revived/
 
 ### Unreleased
 
-* Updated project build settings for modern Xcode + Apple Silicon Macs (including M5-class systems)
-* Set Swift language mode to 5.10
-* Removed machine-specific manual signing settings to make local builds work out of the box
-* Raised deployment target to macOS 13.0
+* OrionXV: refreshed compatibility work for modern Xcode and Apple Silicon Macs
+* OrionXV: improved screen selection logic for multi-display setups
+* OrionXV: reduced unnecessary redraw frequency for the clock view
+* OrionXV: added an optional footer message shown at the bottom of the screen
+* OrionXV: modernized preference reads and writes to use standard `UserDefaults` APIs
+
+## Contributors
+
+### OrionXV
+
+* Added the optional footer message feature
+* Improved modern macOS/AppKit compatibility paths
+* Cleaned up preference persistence and redraw behavior
 
 ### 1.1.4 (2022-03-03)
 

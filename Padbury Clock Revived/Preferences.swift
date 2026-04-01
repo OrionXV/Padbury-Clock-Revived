@@ -129,6 +129,7 @@ class Preferences: NSObject {
     }
 
     var footerMessage: String {
+        // OrionXV contribution: persist the optional footer text independently of the main clock settings.
         get { return defaults.string(forKey: "FooterMessage") ?? "" }
         set {
             defaults.set(newValue, forKey: "FooterMessage")
