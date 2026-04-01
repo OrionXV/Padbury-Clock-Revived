@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ConfigureSheetController: NSObject {
+final class ConfigureSheetController: NSObject, NSTextFieldDelegate {
 
     @IBOutlet var window: NSWindow?
     
@@ -24,6 +24,7 @@ class ConfigureSheetController: NSObject {
     @IBOutlet var fontWeightSelector: NSPopUpButton!
     @IBOutlet var plainFontsOnlyCheckbox: NSButton!
     @IBOutlet var mainScreenCheckbox: NSButton!
+    @IBOutlet var footerMessageField: NSTextField!
     
     override init() {
         super.init()
@@ -33,6 +34,7 @@ class ConfigureSheetController: NSObject {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        footerMessageField.delegate = self
         setup()
     }
     
@@ -59,6 +61,7 @@ class ConfigureSheetController: NSObject {
         fontSelector.selectItem(withTitle: preferences.fontFamily.name)
         mainScreenCheckbox.state = preferences.mainScreenOnly ? .on : .off
         plainFontsOnlyCheckbox.state = preferences.plainFontsOnly ? .on : .off
+        footerMessageField.stringValue = preferences.footerMessage
         
         // Remove all options from the font selector and add the ones corresponding to the fonts
         fontSelector.removeAllItems()
@@ -101,9 +104,19 @@ class ConfigureSheetController: NSObject {
         preferences.styleName = fontWeightSelector.selectedItem?.title ?? ""
         preferences.mainScreenOnly = mainScreenCheckbox.state == .on
         preferences.plainFontsOnly = plainFontsOnlyCheckbox.state == .on
+        preferences.footerMessage = footerMessageField.stringValue
         
         // Update the options. Font weight might have changed.
         self.setup()
+    }
+
+    func controlTextDidChange(_ obj: Notification) {
+        guard let textField = obj.object as? NSTextField, textField == footerMessageField else { return }
+        guard let preferences = Preferences.shared else { return }
+
+        preferences.footerMessage = textField.stringValue
+        ClockView.shared?.setup(force: true)
+        ClockView.shared?.needsDisplay = true
     }
     
     @IBAction func closeConfigureSheet(_ sender: AnyObject) {

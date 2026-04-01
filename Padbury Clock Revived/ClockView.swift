@@ -37,6 +37,7 @@ final class ClockView: ScreenSaverView {
     
     var dateFormatter: DateFormatter = DateFormatter()
     var attributes: [NSAttributedString.Key: Any] = [:]
+    var footerAttributes: [NSAttributedString.Key: Any] = [:]
     
     var lastUsedNightTimeMode: Bool = false
     var systemWasDarkMode: Bool = false
@@ -129,6 +130,16 @@ final class ClockView: ScreenSaverView {
             .foregroundColor: foregroundColor,
             .paragraphStyle: paragraphStyle,
         ]
+
+        let footerParagraphStyle = NSMutableParagraphStyle()
+        footerParagraphStyle.alignment = .center
+        footerParagraphStyle.lineBreakMode = .byTruncatingTail
+        let footerFont = preferences.nsFont(ofSize: max(18, min(32, fontSize * 0.08)))
+        footerAttributes = [
+            .font: footerFont,
+            .foregroundColor: foregroundColor.withAlphaComponent(0.85),
+            .paragraphStyle: footerParagraphStyle,
+        ]
     }
     
     // MARK: - Drawing
@@ -165,6 +176,18 @@ final class ClockView: ScreenSaverView {
         let time = NSString(string: dateFormatter.string(from: Date()))
         // Draw the time
         time.draw(in: targetRect, withAttributes: attributes)
+
+        let footerMessage = preferences.footerMessage.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !footerMessage.isEmpty else { return }
+
+        let bottomInset = (window?.screen?.safeAreaInsets.bottom ?? 0) + 24
+        let footerRect = NSRect(
+            x: 24,
+            y: bottomInset,
+            width: bounds.width - 48,
+            height: 40
+        )
+        NSString(string: footerMessage).draw(in: footerRect, withAttributes: footerAttributes)
     }
 
     // MARK: - Preferences

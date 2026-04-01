@@ -127,6 +127,14 @@ class Preferences: NSObject {
             defaults.synchronize()
         }
     }
+
+    var footerMessage: String {
+        get { return defaults.string(forKey: "FooterMessage") ?? "" }
+        set {
+            defaults.set(newValue, forKey: "FooterMessage")
+            defaults.synchronize()
+        }
+    }
 }
 
 // MARK: - Dark Mode Enum

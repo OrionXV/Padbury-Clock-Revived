@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24765" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24765"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -11,6 +10,7 @@
                 <outlet property="appearanceSelector" destination="GTP-Pj-lTg" id="6wV-Kz-gLW"/>
                 <outlet property="fontSelector" destination="zfh-nJ-hc4" id="sgj-ET-U7i"/>
                 <outlet property="fontWeightSelector" destination="ZPr-3s-mEV" id="Lvz-Is-N9l"/>
+                <outlet property="footerMessageField" destination="x6V-w4-T8X" id="5ga-M0-v1w"/>
                 <outlet property="mainScreenCheckbox" destination="1UD-4O-M08" id="QDq-cb-heL"/>
                 <outlet property="nightTimeModeCheckbox" destination="Amm-Fe-f9G" id="Vqv-0P-PuV"/>
                 <outlet property="plainFontsOnlyCheckbox" destination="zke-NP-hp0" id="R47-IB-AwG"/>
@@ -27,13 +27,13 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="708" y="509" width="474" height="354"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1175"/>
-            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="474" height="343"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1470" height="923"/>
+            <view key="contentView" wantsLayer="YES" misplaced="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="509" height="379"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <gridView xPlacement="leading" yPlacement="fill" rowAlignment="firstBaseline" rowSpacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gJC-Fu-Ran">
-                        <rect key="frame" x="16" y="16" width="442" height="311"/>
+                        <rect key="frame" x="16" y="16" width="477" height="347"/>
                         <rows>
                             <gridRow id="qR4-PX-gJf"/>
                             <gridRow id="hNR-Sn-yK5"/>
@@ -47,8 +47,8 @@
                         </columns>
                         <gridCells>
                             <gridCell row="qR4-PX-gJf" column="zi3-Ws-PdH" id="0fO-xp-vHq">
-                                <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nvf-RD-QbQ">
-                                    <rect key="frame" x="52" y="294" width="50" height="16"/>
+                                <textField key="contentView" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nvf-RD-QbQ">
+                                    <rect key="frame" x="52" y="327" width="50" height="16"/>
                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Theme:" id="LXO-Ih-MrQ">
                                         <font key="font" textStyle="body" name=".SFNS-Regular"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -58,13 +58,13 @@
                             </gridCell>
                             <gridCell row="qR4-PX-gJf" column="Ci0-4x-MqC" id="Wxv-Fj-hWb">
                                 <stackView key="contentView" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sea-gl-kUy">
-                                    <rect key="frame" x="106" y="246" width="336" height="65"/>
+                                    <rect key="frame" x="106" y="278" width="371" height="69"/>
                                     <subviews>
                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GTP-Pj-lTg">
-                                            <rect key="frame" x="-3" y="41" width="78" height="25"/>
+                                            <rect key="frame" x="0.0" y="45" width="86" height="24"/>
                                             <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="jbx-Lz-pps" id="VHP-lP-KjH">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="menu"/>
+                                                <font key="font" metaFont="message"/>
                                                 <menu key="menu" id="a6L-EO-Mvl">
                                                     <items>
                                                         <menuItem title="Item 1" state="on" id="jbx-Lz-pps"/>
@@ -78,7 +78,7 @@
                                             </connections>
                                         </popUpButton>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Amm-Fe-f9G">
-                                            <rect key="frame" x="-2" y="20" width="130" height="18"/>
+                                            <rect key="frame" x="0.0" y="21" width="126" height="16"/>
                                             <buttonCell key="cell" type="check" title="Night Time Mode" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vLg-7I-fzF">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" textStyle="body" name=".SFNS-Regular"/>
@@ -87,7 +87,7 @@
                                                 <action selector="toggledCheckbox:" target="-2" id="jYV-wW-lPa"/>
                                             </connections>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7rt-9a-dIK">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7rt-9a-dIK">
                                             <rect key="frame" x="-2" y="0.0" width="244" height="13"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Displays the time in red from 10:00 PM – 6:00 AM" id="Yi1-BS-phx">
                                                 <font key="font" textStyle="footnote" name=".SFNS-Regular"/>
@@ -109,8 +109,8 @@
                                 </stackView>
                             </gridCell>
                             <gridCell row="hNR-Sn-yK5" column="zi3-Ws-PdH" id="rFd-tF-pe7">
-                                <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eiq-ey-ljG">
-                                    <rect key="frame" x="51" y="214" width="51" height="16"/>
+                                <textField key="contentView" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Eiq-ey-ljG">
+                                    <rect key="frame" x="51" y="246" width="51" height="16"/>
                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Format:" id="x67-8N-GDg">
                                         <font key="font" textStyle="body" name=".SFNS-Regular"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -120,10 +120,10 @@
                             </gridCell>
                             <gridCell row="hNR-Sn-yK5" column="Ci0-4x-MqC" id="9ob-ff-aVI">
                                 <stackView key="contentView" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gY9-7r-qzT">
-                                    <rect key="frame" x="106" y="166" width="336" height="64"/>
+                                    <rect key="frame" x="106" y="198" width="371" height="64"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vcR-gm-DgE">
-                                            <rect key="frame" x="-2" y="47" width="83" height="18"/>
+                                            <rect key="frame" x="0.0" y="48" width="79" height="16"/>
                                             <buttonCell key="cell" type="check" title="24h Time" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="HDX-7t-rWJ">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" textStyle="body" name=".SFNS-Regular"/>
@@ -133,7 +133,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZBS-KB-BcL">
-                                            <rect key="frame" x="-2" y="23" width="116" height="18"/>
+                                            <rect key="frame" x="0.0" y="24" width="112" height="16"/>
                                             <buttonCell key="cell" type="check" title="Show Seconds" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="c3a-2J-8Wm">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" textStyle="body" name=".SFNS-Regular"/>
@@ -143,7 +143,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ck4-Uf-5fZ">
-                                            <rect key="frame" x="-2" y="-1" width="126" height="18"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="122" height="16"/>
                                             <buttonCell key="cell" type="check" title="Time Separators" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zQE-TV-IO8">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" textStyle="body" name=".SFNS-Regular"/>
@@ -166,8 +166,8 @@
                                 </stackView>
                             </gridCell>
                             <gridCell row="IXm-94-IO3" column="zi3-Ws-PdH" id="QwM-IL-kLx">
-                                <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GmH-OM-r8Z">
-                                    <rect key="frame" x="67" y="133" width="35" height="16"/>
+                                <textField key="contentView" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GmH-OM-r8Z">
+                                    <rect key="frame" x="67" y="162" width="35" height="16"/>
                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Font:" id="WxL-HA-itY">
                                         <font key="font" textStyle="body" name=".SFNS-Regular"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -177,13 +177,13 @@
                             </gridCell>
                             <gridCell row="IXm-94-IO3" column="Ci0-4x-MqC" id="oBE-24-ISA">
                                 <stackView key="contentView" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5vM-mO-oEe">
-                                    <rect key="frame" x="106" y="78" width="336" height="72"/>
+                                    <rect key="frame" x="106" y="102" width="371" height="80"/>
                                     <subviews>
                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zfh-nJ-hc4">
-                                            <rect key="frame" x="-3" y="48" width="343" height="25"/>
+                                            <rect key="frame" x="0.0" y="56" width="371" height="24"/>
                                             <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="vhr-wY-GWe">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="menu"/>
+                                                <font key="font" metaFont="message"/>
                                                 <menu key="menu" id="ic9-E4-CLl"/>
                                             </popUpButtonCell>
                                             <connections>
@@ -191,10 +191,10 @@
                                             </connections>
                                         </popUpButton>
                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZPr-3s-mEV">
-                                            <rect key="frame" x="-3" y="20" width="343" height="25"/>
+                                            <rect key="frame" x="0.0" y="24" width="371" height="24"/>
                                             <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="pCY-fT-R2N">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="menu"/>
+                                                <font key="font" metaFont="message"/>
                                                 <menu key="menu" id="lfq-Tx-KaM"/>
                                             </popUpButtonCell>
                                             <connections>
@@ -202,7 +202,7 @@
                                             </connections>
                                         </popUpButton>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zke-NP-hp0">
-                                            <rect key="frame" x="-2" y="-1" width="262" height="18"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="258" height="16"/>
                                             <buttonCell key="cell" type="check" title="Only Show Regular Width Roman Fonts" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="jzz-84-awZ">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" textStyle="body" name=".SFNS-Regular"/>
@@ -231,8 +231,8 @@
                                 </stackView>
                             </gridCell>
                             <gridCell row="Cxt-q9-mTi" column="zi3-Ws-PdH" yPlacement="bottom" id="IX2-H5-KXd">
-                                <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UMP-PK-d1e">
-                                    <rect key="frame" x="65" y="46" width="37" height="16"/>
+                                <textField key="contentView" focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UMP-PK-d1e">
+                                    <rect key="frame" x="65" y="70" width="37" height="16"/>
                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Misc:" id="qr8-si-77O">
                                         <font key="font" textStyle="body" name=".SFNS-Regular"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -241,21 +241,42 @@
                                 </textField>
                             </gridCell>
                             <gridCell row="Cxt-q9-mTi" column="Ci0-4x-MqC" id="nk2-EC-GlA">
-                                <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1UD-4O-M08">
-                                    <rect key="frame" x="104" y="45" width="338" height="18"/>
-                                    <buttonCell key="cell" type="check" title="Show on Main Screen Only" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xS6-17-PLb">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" textStyle="body" name=".SFNS-Regular"/>
-                                    </buttonCell>
-                                    <connections>
-                                        <action selector="toggledCheckbox:" target="-2" id="rOs-i9-tva"/>
-                                    </connections>
-                                </button>
+                                <stackView key="contentView" distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D5W-kY-vn1">
+                                    <rect key="frame" x="106" y="46" width="371" height="40"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1UD-4O-M08">
+                                            <rect key="frame" x="0.0" y="24" width="184" height="16"/>
+                                            <buttonCell key="cell" type="check" title="Show on Main Screen Only" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="xS6-17-PLb">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" textStyle="body" name=".SFNS-Regular"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="toggledCheckbox:" target="-2" id="rOs-i9-tva"/>
+                                            </connections>
+                                        </button>
+                                        <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x6V-w4-T8X">
+                                            <rect key="frame" x="0.0" y="0.0" width="365" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" placeholderString="Optional footer message shown at the bottom of the screen" drawsBackground="YES" usesSingleLineMode="YES" id="J1H-tb-oG7">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                    <visibilityPriorities>
+                                        <integer value="1000"/>
+                                        <integer value="1000"/>
+                                    </visibilityPriorities>
+                                    <customSpacing>
+                                        <real value="3.4028234663852886e+38"/>
+                                        <real value="3.4028234663852886e+38"/>
+                                    </customSpacing>
+                                </stackView>
                             </gridCell>
                             <gridCell row="lzY-9f-Cpu" column="zi3-Ws-PdH" id="VDk-id-WdJ"/>
                             <gridCell row="lzY-9f-Cpu" column="Ci0-4x-MqC" id="h14-yl-wFz">
                                 <customView key="contentView" verticalHuggingPriority="750" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="P6p-Lx-Ysq" userLabel="Spacer">
-                                    <rect key="frame" x="106" y="0.0" width="336" height="30"/>
+                                    <rect key="frame" x="106" y="0.0" width="371" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="fkT-3c-thy"/>
                                     </constraints>
@@ -263,7 +284,7 @@
                             </gridCell>
                         </gridCells>
                     </gridView>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gk5-m1-DnV">
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gk5-m1-DnV">
                         <rect key="frame" x="4" y="6" width="70" height="13"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" alignment="right" placeholderString="version string" id="y5l-f7-QqV">
                             <font key="font" textStyle="footnote" name=".SFNS-Regular"/>
@@ -272,10 +293,10 @@
                         </textFieldCell>
                     </textField>
                     <stackView distribution="equalSpacing" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EoG-ry-HDx">
-                        <rect key="frame" x="122" y="16" width="336" height="20"/>
+                        <rect key="frame" x="122" y="16" width="371" height="24"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gHO-5K-bWB">
-                                <rect key="frame" x="-7" y="-7" width="77" height="32"/>
+                                <rect key="frame" x="0.0" y="0.0" width="67" height="24"/>
                                 <buttonCell key="cell" type="push" title="GitHub" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XDK-SX-5Tm">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -285,10 +306,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2Gw-oF-LdS">
-                                <rect key="frame" x="269" y="-7" width="74" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="bc6-ar-v2i"/>
-                                </constraints>
+                                <rect key="frame" x="311" y="0.0" width="60" height="24"/>
                                 <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8UU-IZ-aSu">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -296,6 +314,9 @@
 DQ
 </string>
                                 </buttonCell>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="bc6-ar-v2i"/>
+                                </constraints>
                                 <connections>
                                     <action selector="closeConfigureSheet:" target="-2" id="18E-Ty-gmg"/>
                                 </connections>
