@@ -22,22 +22,18 @@ The night time mode from the original is also supported.
 ![settings](screenshots/settings.png)
 ## Installation
 
-Download [the latest version]([https://github.com/OrionXV/Padbury-Clock-Revived/releases/download/1.2.0/Padbury.Clock.Revived.saver.zip]) from [the releases page](https://github.com/OrionXV/Padbury-Clock-Revived/releases).
+Download [the latest version](https://github.com/OrionXV/Padbury-Clock-Revived/releases/download/1.2.0/Padbury.Clock.Revived.saver.zip) from [the releases page](https://github.com/OrionXV/Padbury-Clock-Revived/releases).
 
 ## Changelog
 
 ### Latest changes
-OrionXV
 * refreshed compatibility work for modern Xcode and Apple Silicon Macs
 * improved screen selection logic for multi-display setups
 * reduced unnecessary redraw frequency for the clock view
 * added an optional footer message shown at the bottom of the screen
 * modernized preference reads and writes to use standard `UserDefaults` APIs
 
-## Contributors
-
 ### 1.2.0 (2026-04-01)
-OrionXV
 * Added the optional footer message feature
 * Improved modern macOS/AppKit compatibility paths
 * Cleaned up preference persistence and redraw behavior

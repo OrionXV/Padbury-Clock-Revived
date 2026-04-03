@@ -256,7 +256,7 @@
                                         </button>
                                         <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x6V-w4-T8X">
                                             <rect key="frame" x="0.0" y="0.0" width="365" height="16"/>
-                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" placeholderString="Optional footer message shown at the bottom of the screen" drawsBackground="YES" usesSingleLineMode="YES" id="J1H-tb-oG7">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" editable="YES" selectable="YES" bordered="YES" bezeled="YES" lineBreakMode="truncatingTail" placeholderString="Optional footer message shown at the bottom of the screen" drawsBackground="YES" usesSingleLineMode="YES" id="J1H-tb-oG7">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

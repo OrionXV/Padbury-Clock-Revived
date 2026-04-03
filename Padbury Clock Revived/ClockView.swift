@@ -16,7 +16,6 @@ final class ClockView: ScreenSaverView {
     
     override init?(frame: NSRect, isPreview: Bool) {
         super.init(frame: frame, isPreview: isPreview)
-        // OrionXV contribution: the clock only needs a 1 Hz refresh cadence.
         animationTimeInterval = 1.0
         if isPreview { ClockView.shared = self }
     }
@@ -48,8 +47,6 @@ final class ClockView: ScreenSaverView {
     }
 
     private var shouldDrawClock: Bool {
-        // OrionXV contribution: prefer the primary display over NSScreen.main,
-        // which tracks the active window instead of the menu-bar display.
         guard preferences.mainScreenOnly else { return true }
         guard let windowScreen = window?.screen else { return false }
         guard let primaryScreen else { return true }
@@ -137,7 +134,6 @@ final class ClockView: ScreenSaverView {
         let footerParagraphStyle = NSMutableParagraphStyle()
         footerParagraphStyle.alignment = .center
         footerParagraphStyle.lineBreakMode = .byTruncatingTail
-        // OrionXV contribution: keep the footer subtle and legible across font choices.
         let footerFont = preferences.nsFont(ofSize: max(18, min(32, fontSize * 0.08)))
         footerAttributes = [
             .font: footerFont,
@@ -184,7 +180,6 @@ final class ClockView: ScreenSaverView {
         let footerMessage = preferences.footerMessage.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !footerMessage.isEmpty else { return }
 
-        // OrionXV contribution: respect the display safe area and keep the footer near the bottom edge.
         let bottomInset = (window?.screen?.safeAreaInsets.bottom ?? 0) + 24
         let footerRect = NSRect(
             x: 24,
