@@ -30,7 +30,7 @@ Double click to install.
 
 ## Contributors
 
-[![contributors](https://contrib.rocks/image?repo=Kamik423/Padbury-Clock-Revived)](https://github.com/Kamik423/Padbury-Clock-Revived/graphs/contributors)
+[![contributors](https://stg.contrib.rocks/image?repo=Kamik423/Padbury-Clock-Revived)](https://github.com/Kamik423/Padbury-Clock-Revived/graphs/contributors)
 
 
 ## Changelog
