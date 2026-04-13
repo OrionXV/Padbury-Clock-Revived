@@ -20,38 +20,47 @@ The night time mode from the original is also supported.
 <img src="screenshots/screenshot-4.png" width=32%> <img src="screenshots/screenshot-5.png" width=32%> <img src="screenshots/screenshot-6.png" width=32%>
 
 ![settings](screenshots/settings.png)
+
+
 ## Installation
 
-Download [the latest version](https://github.com/OrionXV/Padbury-Clock-Revived/releases/download/1.2.0/Padbury.Clock.Revived.saver.zip) from [the releases page](https://github.com/OrionXV/Padbury-Clock-Revived/releases).
+Download [the latest version](https://github.com/Kamik423/Padbury-Clock-Revived/releases/latest/download/Padbury.Clock.Revived.saver.zip) from [the releases page](https://github.com/Kamik423/Padbury-Clock-Revived/releases).
+Double click to install.
+
+
+## Contributors
+
+[![contributors](https://contrib.rocks/image?repo=Kamik423/Padbury-Clock-Revived)](https://github.com/Kamik423/Padbury-Clock-Revived/graphs/contributors)
+
 
 ## Changelog
 
-### Latest changes
-* refreshed compatibility work for modern Xcode and Apple Silicon Macs
+### 1.2.0 (2026-04-13)
+
+* added an optional footer message
+* Updated for Apple Silicon and macOS 26
+* Cleaned up preference persistence and redraw behavior
 * improved screen selection logic for multi-display setups
 * reduced unnecessary redraw frequency for the clock view
-* added an optional footer message shown at the bottom of the screen
-* modernized preference reads and writes to use standard `UserDefaults` APIs
 
-### 1.2.0 (2026-04-01)
-* Added the optional footer message feature
-* Improved modern macOS/AppKit compatibility paths
-* Cleaned up preference persistence and redraw behavior
 
 ### 1.1.4 (2022-03-03)
 
 * Added SF Rounded Font
+
 
 ### 1.1.3 (2022-02-22)
 
 * Added support for dynamic system appearance
 * Improved layout constraints for settings screen
 
+
 ### 1.1.2 (2022-02-14)
 
 * Dynamically load font weights and display them in the dropdown
 * Compute font size dynamically based on enabled and disabled features
 * Compute correct vertical centering instead of guesstimating it
+
 
 ### 1.1.1 (2022-02-10)
 
@@ -61,24 +70,29 @@ Download [the latest version](https://github.com/OrionXV/Padbury-Clock-Revived/r
 * Reduced deployment target to macOS 10.15
 * Made SF Mono slightly smaller as not to cut it off with am/pm
 
+
 ### 1.1.0 (2022-02-10)
 
 * Added more font options
 * Added GitHub button
 * Added version number to settings screen
 
+
 ### 1.0.2 (2022-02-09)
 
 * Added night time mode
 * Fixed settings not saving correctly
 
+
 ### 1.0.1 (2022-02-09)
 
 * Rebuilt as Universal Binary
 
+
 ### 1.0.0 (2022-02-08)
 
 * Initial Release
+
 
 ## License
 

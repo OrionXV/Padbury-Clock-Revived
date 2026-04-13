@@ -3,28 +3,36 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A93869525C9C7920031FA1E /* ConfigureSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AA5BF7725C9B470005B39FE /* ConfigureSheet.xib */; };
-		3A9386A225CAE6D30031FA1E /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9386A125CAE6D30031FA1E /* Preferences.swift */; };
-		3A93924925C9BE4700FC3E93 /* ConfigureSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A93924825C9BE4700FC3E93 /* ConfigureSheetController.swift */; };
-		3AA5BF6B25C98A84005B39FE /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA5BF6A25C98A84005B39FE /* ClockView.swift */; };
-		3AA5BF7425C9B160005B39FE /* thumbnail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA5BF7225C9B160005B39FE /* thumbnail@2x.png */; };
-		3AA5BF7525C9B160005B39FE /* thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AA5BF7325C9B160005B39FE /* thumbnail.png */; };
+		3A7949D22F8D6BAE00F8B1D5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3A7949C22F8D6BAE00F8B1D5 /* README.md */; };
+		3A7949D42F8D6BAE00F8B1D5 /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 3A7949C12F8D6BAE00F8B1D5 /* LICENSE.md */; };
+		3A7949D72F8D6E7600F8B1D5 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3A7949D62F8D6E7600F8B1D5 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3A9386A125CAE6D30031FA1E /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
-		3A93924825C9BE4700FC3E93 /* ConfigureSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureSheetController.swift; sourceTree = "<group>"; };
+		3A7949C12F8D6BAE00F8B1D5 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		3A7949C22F8D6BAE00F8B1D5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3A7949D62F8D6E7600F8B1D5 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		3AA5BF5A25C98A31005B39FE /* Padbury Clock Revived.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Padbury Clock Revived.saver"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AA5BF6125C98A31005B39FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3AA5BF6A25C98A84005B39FE /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
-		3AA5BF7225C9B160005B39FE /* thumbnail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbnail@2x.png"; sourceTree = "<group>"; };
-		3AA5BF7325C9B160005B39FE /* thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumbnail.png; sourceTree = "<group>"; };
-		3AA5BF7725C9B470005B39FE /* ConfigureSheet.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigureSheet.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3A7246CE2F7EFC070084DB16 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3AA5BF5925C98A31005B39FE /* Padbury Clock Revived */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3A7246C62F7EFC070084DB16 /* Padbury Clock Revived */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (3A7246CE2F7EFC070084DB16 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "Padbury Clock Revived"; sourceTree = "<group>"; };
+		3A7949CB2F8D6BAE00F8B1D5 /* screenshots */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = screenshots; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3AA5BF5725C98A31005B39FE /* Frameworks */ = {
@@ -40,7 +48,11 @@
 		3AA5BF5025C98A31005B39FE = {
 			isa = PBXGroup;
 			children = (
-				3AA5BF5C25C98A31005B39FE /* Padbury Clock Revived */,
+				3A7949D62F8D6E7600F8B1D5 /* .gitignore */,
+				3A7949C12F8D6BAE00F8B1D5 /* LICENSE.md */,
+				3A7949C22F8D6BAE00F8B1D5 /* README.md */,
+				3A7949CB2F8D6BAE00F8B1D5 /* screenshots */,
+				3A7246C62F7EFC070084DB16 /* Padbury Clock Revived */,
 				3AA5BF5B25C98A31005B39FE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,20 +63,6 @@
 				3AA5BF5A25C98A31005B39FE /* Padbury Clock Revived.saver */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		3AA5BF5C25C98A31005B39FE /* Padbury Clock Revived */ = {
-			isa = PBXGroup;
-			children = (
-				3AA5BF7725C9B470005B39FE /* ConfigureSheet.xib */,
-				3AA5BF6125C98A31005B39FE /* Info.plist */,
-				3AA5BF6A25C98A84005B39FE /* ClockView.swift */,
-				3A93924825C9BE4700FC3E93 /* ConfigureSheetController.swift */,
-				3A9386A125CAE6D30031FA1E /* Preferences.swift */,
-				3AA5BF7325C9B160005B39FE /* thumbnail.png */,
-				3AA5BF7225C9B160005B39FE /* thumbnail@2x.png */,
-			);
-			path = "Padbury Clock Revived";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -92,6 +90,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3A7246C62F7EFC070084DB16 /* Padbury Clock Revived */,
+				3A7949CB2F8D6BAE00F8B1D5 /* screenshots */,
 			);
 			name = "Padbury Clock Revived";
 			productName = "Padbury Clock Revived";
@@ -136,9 +138,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AA5BF7525C9B160005B39FE /* thumbnail.png in Resources */,
-				3AA5BF7425C9B160005B39FE /* thumbnail@2x.png in Resources */,
-				3A93869525C9C7920031FA1E /* ConfigureSheet.xib in Resources */,
+				3A7949D22F8D6BAE00F8B1D5 /* README.md in Resources */,
+				3A7949D72F8D6E7600F8B1D5 /* .gitignore in Resources */,
+				3A7949D42F8D6BAE00F8B1D5 /* LICENSE.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,9 +151,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AA5BF6B25C98A84005B39FE /* ClockView.swift in Sources */,
-				3A93924925C9BE4700FC3E93 /* ConfigureSheetController.swift in Sources */,
-				3A9386A225CAE6D30031FA1E /* Preferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +284,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = VW549R3EEQ;
 				INFOPLIST_FILE = "Padbury Clock Revived/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -312,6 +312,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = VW549R3EEQ;
 				INFOPLIST_FILE = "Padbury Clock Revived/Info.plist";
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
 				LD_RUNPATH_SEARCH_PATHS = (
